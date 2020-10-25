@@ -4,6 +4,8 @@ LectScript is a command line tool written in Python that enables you to automati
 outlines of Zoom recordings. Given just the URL of a Zoom cloud recording, LectScript will return a full transcript of the entire lecture. 
 LectScript further generates key concepts and the timestamps of important moments for you to review.
 
+Initially submitted for Columbia's 2020 hackathon, for which we won the best education hack!
+
 ## How It Works
 
 1. LectScript contains a CLI tool (`main.py`), 2 modules (`data.py`, `nlp.py`)
