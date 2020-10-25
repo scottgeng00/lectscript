@@ -63,6 +63,21 @@ def main(args):
     temp = sys.stdout
     sys.stdout = open(args.output, 'w')
 
+    if(args.bookmark is not None):
+
+        try:
+            bcsv = open(args.bookmark, 'r')
+            print("################# PERSONAL BOOKMARKS #################")
+            bcsv.readline(); bcsv.readline(); bcsv.readline()
+            for line in bcsv:
+                line = line.split(', ')
+                timestamp = line[0].split('.')[0]
+                print("<" + str(timestamp) + "> " + line[1])
+            print()
+
+        except:
+            raise FileNotFoundError('The bookmark file you entered doesn\'t exist :(')
+            
     print("################# KEY LECTURE CONCEPTS #################")
     for phrase in doc_list[:20]:
         print(phrase.text.strip())
@@ -125,6 +140,8 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", help="Specify output file (default is 'lecture_transcript.txt' in output directory)",
                         type=str, default="output/lecture_transcript.txt")
     parser.add_argument("-p", "--password", help="Password of the video",
+                        type=str)
+    parser.add_argument("-b", "--bookmark", help="Your bookmark file for the given lecture",
                         type=str)
     parser.add_argument("-v", "--verbose", help="Increase stdout verbosity",
                         action="store_true")
