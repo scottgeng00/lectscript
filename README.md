@@ -47,7 +47,7 @@ For the remaining two (2) requirements, you will need to install [zoomdl](https:
 </details>
 
 
-### Usage
+### Execution
 
 To learn how to use `lectscript`, run the executable with `--help`:
 
